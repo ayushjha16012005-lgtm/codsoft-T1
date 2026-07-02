@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskLedger — To-Do List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="title-block">
+      <h1>TaskLedger</h1>
+      <p>a simple to-do list, entered line by line</p>
+    </div>
+    <div class="date-today" id="todayDate"></div>
+  </header>
+
+  <button class="add-trigger" id="openFormBtn">+ Add a new task</button>
+
+  <div class="task-form" id="taskForm">
+    <h2 id="formHeading">New task</h2>
+    <input type="hidden" id="editingId">
+
+    <div class="field">
+      <label for="titleInput">Title</label>
+      <input type="text" id="titleInput" placeholder="e.g. Submit lab report" maxlength="80">
+    </div>
+
+    <div class="field">
+      <label for="descInput">Description (optional)</label>
+      <textarea id="descInput" placeholder="Add any extra detail..."></textarea>
+    </div>
+
+    <div class="row-2">
+      <div class="field">
+        <label for="priorityInput">Priority</label>
+        <select id="priorityInput">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="dueInput">Due date (optional)</label>
+        <input type="date" id="dueInput">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-ghost" id="cancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveBtn">Save task</button>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="active">Active</button>
+    <button class="filter-btn" data-filter="completed">Completed</button>
+  </div>
+
+  <ul class="task-list" id="taskList"></ul>
+
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <p>The ledger is empty.</p>
+    <p>Add your first task above to get started.</p>
+  </div>
+
+  <footer>saved locally in this browser · <span id="taskCount">0</span> total</footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
